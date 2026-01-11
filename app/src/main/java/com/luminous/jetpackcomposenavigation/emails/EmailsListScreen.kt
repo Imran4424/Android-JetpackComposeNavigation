@@ -19,7 +19,9 @@ import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.luminous.jetpackcomposenavigation.ui.theme.NavSetupTheme
 
 @Composable
 fun EmailsListScreen(
@@ -81,4 +83,16 @@ fun EmailsSearchBar() {
                 onExpandedChange = {},
                 content = {}
         )
+}
+
+// below macros can change positions
+@Preview
+@Composable
+private fun PreviewEmailsListScreen() {
+        NavSetupTheme {
+                EmailsListScreen(
+                        onOpenEmailDetails = {},
+                        onComposeNewEmail = {}
+                )
+        }
 }
