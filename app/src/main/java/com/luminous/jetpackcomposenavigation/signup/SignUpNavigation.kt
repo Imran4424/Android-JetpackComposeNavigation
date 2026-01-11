@@ -9,9 +9,9 @@ data object SignUpDestination
 
 fun NavGraphBuilder.signUpScreen() {
         composable<SignUpDestination> {
-                SignUpScreen()
+                SignUpScreen(
+                        onNavigateToMain = { },
+                        onNavigateUp = { }
+                )
         }
-}
-
-
 }
