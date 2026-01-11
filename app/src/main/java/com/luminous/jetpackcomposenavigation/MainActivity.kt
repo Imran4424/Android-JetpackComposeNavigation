@@ -13,20 +13,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.compose.*
 import com.luminous.jetpackcomposenavigation.ui.theme.JetPackComposeNavigationTheme
+import com.luminous.jetpackcomposenavigation.ui.theme.NavSetupTheme
+import kotlinx.serialization.Serializable
 
 class MainActivity : ComponentActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
                 super.onCreate(savedInstanceState)
                 enableEdgeToEdge()
                 setContent {
-                        JetPackComposeNavigationTheme {
-                                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                                        Greeting(
-                                                name = "Android",
-                                                modifier = Modifier.padding(innerPadding)
-                                        )
-                                }
+                        NavSetupTheme {
+                                AppRoot()
                         }
                 }
         }
@@ -38,9 +36,11 @@ private fun AppRoot() {
 
         NavHost(
                 navController = navController,
-                startDestination = ""
+                startDestination = LoginDestination
         ) {
+                composable<LoginDestination>(LoginDestination) {
 
+                }
         }
 }
 
@@ -51,6 +51,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 modifier = modifier
         )
 }
+
+@Serializable
+data object LoginDestination
 
 @Preview(showBackground = true)
 @Composable
