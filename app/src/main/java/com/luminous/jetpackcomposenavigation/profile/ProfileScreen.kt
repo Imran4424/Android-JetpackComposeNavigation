@@ -17,7 +17,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.luminous.jetpackcomposenavigation.ui.theme.NavSetupTheme
 
 @Composable
 fun ProfileScreen() {
@@ -41,5 +43,14 @@ fun ProfileScreen() {
 
                         Text(text = "Imran Hossain", style = MaterialTheme.typography.headlineLarge)
                 }
+        }
+}
+
+// below macros can change positions
+@Preview
+@Composable
+private fun PreviewProfileScreen() {
+        NavSetupTheme {
+                ProfileScreen()
         }
 }
