@@ -6,7 +6,9 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavDestination
+import com.luminous.jetpackcomposenavigation.ui.theme.NavSetupTheme
 
 @Composable
 fun MainScreen(
@@ -33,6 +35,17 @@ fun MainBottomBar(
                         selected = false,
                         onClick = onNavigateToProfile,
                         icon = { Icon(Icons.Default.Email, "Profile") }
+                )
+        }
+}
+
+@Preview
+@Composable
+private fun PreviewMainScreen() {
+        NavSetupTheme {
+                MainScreen(
+                        onOpenEmailDetails = { },
+                        onComposeNewEmail = { }
                 )
         }
 }
