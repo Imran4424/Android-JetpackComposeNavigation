@@ -1,5 +1,6 @@
 package com.luminous.jetpackcomposenavigation.signup
 
+import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import kotlinx.serialization.Serializable
@@ -17,4 +18,8 @@ fun NavGraphBuilder.signUpScreen(
                         onNavigateUp = onNavigateUp
                 )
         }
+}
+
+fun NavController.navigateToSignUp() {
+        navigate(SignUpDestination)
 }

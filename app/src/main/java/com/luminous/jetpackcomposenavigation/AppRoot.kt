@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.luminous.jetpackcomposenavigation.login.LoginDestination
 import com.luminous.jetpackcomposenavigation.login.LoginScreen
 import com.luminous.jetpackcomposenavigation.login.loginScreen
+import com.luminous.jetpackcomposenavigation.signup.navigateToSignUp
 import kotlinx.serialization.Serializable
 import kotlin.math.log
 
@@ -21,7 +22,7 @@ fun AppRoot() {
         ) {
                 loginScreen(
                         onNavigateToMain = { },
-                        onNavigateToSignUp = { }
+                        onNavigateToSignUp = { navController.navigateToSignUp() }
                 )
         }
 }
