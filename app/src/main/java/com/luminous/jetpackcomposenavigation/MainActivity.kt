@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.luminous.jetpackcomposenavigation.ui.theme.JetPackComposeNavigationTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,6 +29,16 @@ class MainActivity : ComponentActivity() {
                         }
                 }
         }
+}
+
+@Composable
+private fun AppRoot() {
+        val navController = rememberNavController()
+
+        NavHost(
+                navController = navController,
+                startDestination = ""
+        )
 }
 
 @Composable
