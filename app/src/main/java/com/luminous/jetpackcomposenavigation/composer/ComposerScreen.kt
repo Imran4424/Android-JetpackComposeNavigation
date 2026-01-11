@@ -15,6 +15,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.luminous.jetpackcomposenavigation.ui.theme.NavSetupTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -46,5 +48,17 @@ fun ComputerScreen(
                 ) {
                         Text("Compose new email here")
                 }
+        }
+}
+
+// below macros order can change, won't effect anything
+@Preview
+@Composable
+private fun PreviewComputerScreen() {
+        NavSetupTheme {
+                ComputerScreen(
+                        onNavigateUp = { },
+                        onOpenSettings = { }
+                )
         }
 }
