@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.*
+import com.luminous.jetpackcomposenavigation.login.LoginScreen
 import com.luminous.jetpackcomposenavigation.ui.theme.JetPackComposeNavigationTheme
 import com.luminous.jetpackcomposenavigation.ui.theme.NavSetupTheme
 import kotlinx.serialization.Serializable
@@ -38,8 +39,11 @@ private fun AppRoot() {
                 navController = navController,
                 startDestination = LoginDestination
         ) {
-                composable<LoginDestination>(LoginDestination) {
-
+                composable<LoginDestination> {
+                        LoginScreen(
+                                onNavigateToMain = { },
+                                onNavigateToSignUp = { }
+                        )
                 }
         }
 }
