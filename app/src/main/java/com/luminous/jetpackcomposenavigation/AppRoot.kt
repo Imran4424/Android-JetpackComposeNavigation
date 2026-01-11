@@ -5,7 +5,9 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.luminous.jetpackcomposenavigation.login.LoginDestination
 import com.luminous.jetpackcomposenavigation.login.LoginScreen
+import com.luminous.jetpackcomposenavigation.login.loginScreen
 import kotlinx.serialization.Serializable
 import kotlin.math.log
 
@@ -20,21 +22,6 @@ fun AppRoot() {
                 loginScreen(
                         onNavigateToMain = { },
                         onNavigateToSignUp = { }
-                )
-        }
-}
-
-@Serializable
-data object LoginDestination
-
-fun NavGraphBuilder.loginScreen(
-        onNavigateToMain: () -> Unit,
-        onNavigateToSignUp: () -> Unit
-) {
-        composable<LoginDestination> {
-                LoginScreen(
-                        onNavigateToMain = onNavigateToMain,
-                        onNavigateToSignUp = onNavigateToSignUp
                 )
         }
 }
