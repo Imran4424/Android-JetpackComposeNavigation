@@ -9,9 +9,6 @@ import com.luminous.jetpackcomposenavigation.login.LoginScreen
 import kotlinx.serialization.Serializable
 import kotlin.math.log
 
-@Serializable
-data object LoginDestination
-
 @Composable
 fun AppRoot() {
         val navController = rememberNavController()
@@ -27,7 +24,10 @@ fun AppRoot() {
         }
 }
 
-private  fun NavGraphBuilder.loginScreen(
+@Serializable
+data object LoginDestination
+
+fun NavGraphBuilder.loginScreen(
         onNavigateToMain: () -> Unit,
         onNavigateToSignUp: () -> Unit
 ) {
