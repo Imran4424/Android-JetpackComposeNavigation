@@ -1,7 +1,10 @@
 package com.luminous.jetpackcomposenavigation.login
 
+import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.luminous.jetpackcomposenavigation.main.MainDestination
+import com.luminous.jetpackcomposenavigation.signup.SignUpDestination
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -17,4 +20,13 @@ fun NavGraphBuilder.loginScreen(
                         onNavigateToSignUp = onNavigateToSignUp
                 )
         }
+}
+
+fun NavController.navigateToMain() {
+        navigate(MainDestination)
+}
+
+fun NavController.navigateToSignUp() {
+        navigate(SignUpDestination)
+
 }

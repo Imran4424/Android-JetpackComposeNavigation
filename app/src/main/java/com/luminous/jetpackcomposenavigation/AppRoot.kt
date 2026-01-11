@@ -2,12 +2,15 @@ package com.luminous.jetpackcomposenavigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.luminous.jetpackcomposenavigation.login.LoginDestination
 import com.luminous.jetpackcomposenavigation.login.LoginScreen
 import com.luminous.jetpackcomposenavigation.login.loginScreen
+import com.luminous.jetpackcomposenavigation.login.navigateToMain
+import com.luminous.jetpackcomposenavigation.main.mainScreen
 import com.luminous.jetpackcomposenavigation.signup.SignUpScreen
 import com.luminous.jetpackcomposenavigation.signup.navigateToSignUp
 import com.luminous.jetpackcomposenavigation.signup.signUpScreen
@@ -23,13 +26,18 @@ fun AppRoot() {
                 startDestination = LoginDestination
         ) {
                 loginScreen(
-                        onNavigateToMain = { },
+                        onNavigateToMain = { navController.navigateToMain() },
                         onNavigateToSignUp = { navController.navigateToSignUp() }
                 )
 
                 signUpScreen(
-                        onNavigateToMain = { },
+                        onNavigateToMain = { navController.navigateToMain() },
                         onNavigateUp = { navController.navigateUp() }
+                )
+
+                mainScreen(
+                        onOpenEmailDetails = { },
+                        onComposeNewEmail = { }
                 )
         }
 }
