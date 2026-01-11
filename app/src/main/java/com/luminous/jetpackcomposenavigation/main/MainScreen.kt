@@ -17,5 +17,5 @@ fun MainBottomBar(
         onNavigateToEmails: () -> Unit,
         onNavigateToProfile: () -> Unit
 ) {
-        
+
 }
