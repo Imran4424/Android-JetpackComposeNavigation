@@ -7,11 +7,14 @@ import kotlinx.serialization.Serializable
 @Serializable
 data object SignUpDestination
 
-fun NavGraphBuilder.signUpScreen() {
+fun NavGraphBuilder.signUpScreen(
+        onNavigateToMain: () -> Unit,
+        onNavigateUp: () -> Unit
+) {
         composable<SignUpDestination> {
                 SignUpScreen(
-                        onNavigateToMain = { },
-                        onNavigateUp = { }
+                        onNavigateToMain = onNavigateToMain,
+                        onNavigateUp = onNavigateUp
                 )
         }
 }
