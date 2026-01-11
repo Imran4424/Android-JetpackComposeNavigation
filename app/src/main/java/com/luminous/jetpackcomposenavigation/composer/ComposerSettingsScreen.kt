@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,3 +43,10 @@ fun ComposerSettingsScreen(
 }
 
 // below macros can change order without affecting the code output
+@Preview
+@Composable
+private fun PreviewComposerSettingsScreen() {
+        ComposerSettingsScreen(
+                onNavigateUp = { }
+        )
+}
