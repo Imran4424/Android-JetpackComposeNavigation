@@ -1,14 +1,18 @@
 package com.luminous.jetpackcomposenavigation.emails
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.ListItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SearchBar
 import androidx.compose.material3.SearchBarDefaults
@@ -33,7 +37,21 @@ fun EmailsListScreen(
                                 icon = { Icon(imageVector = Icons.Default.Search, null) }
                         )
                 }
-        ) { }
+        ) { paddingValues ->
+                val emails = (1..20).map {"Email Item $it" }
+
+                LazyColumn(
+                        modifier = Modifier.fillMaxSize()
+                                .padding(paddingValues)
+                ) {
+                        itemsIndexed(emails) { index, email ->
+                                ListItem(
+                                        modifier = Modifier.clickable { onOpenEmailDetails(index) },
+                                        headlineContent = { Text(text = email) }
+                                )
+                        }
+                }
+        }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
