@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.luminous.jetpackcomposenavigation.ui.theme.NavSetupTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -46,7 +47,9 @@ fun ComposerSettingsScreen(
 @Preview
 @Composable
 private fun PreviewComposerSettingsScreen() {
-        ComposerSettingsScreen(
-                onNavigateUp = { }
-        )
+        NavSetupTheme {
+                ComposerSettingsScreen(
+                        onNavigateUp = { }
+                )
+        }
 }
