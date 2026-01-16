@@ -3,6 +3,7 @@ package com.luminous.jetpackcomposenavigation.main
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -59,7 +60,7 @@ fun MainBottomBar(
                 NavigationBarItem(
                         selected = false,
                         onClick = onNavigateToProfile,
-                        icon = { Icon(Icons.Default.Email, "Profile") }
+                        icon = { Icon(Icons.Default.Person, "Profile") }
                 )
         }
 }

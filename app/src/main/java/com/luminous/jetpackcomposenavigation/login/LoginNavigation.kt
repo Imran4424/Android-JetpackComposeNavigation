@@ -28,5 +28,4 @@ fun NavController.navigateToMain() {
 
 fun NavController.navigateToSignUp() {
         navigate(SignUpDestination)
-
 }
