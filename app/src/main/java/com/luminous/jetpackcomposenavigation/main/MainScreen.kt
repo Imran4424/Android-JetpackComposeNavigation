@@ -17,6 +17,10 @@ import androidx.navigation.NavHost
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.luminous.jetpackcomposenavigation.emails.EmailsListDestination
+import com.luminous.jetpackcomposenavigation.emails.EmailsListScreen
+import com.luminous.jetpackcomposenavigation.emails.emailsListScreen
+import com.luminous.jetpackcomposenavigation.profile.profileScreen
 import com.luminous.jetpackcomposenavigation.ui.theme.NavSetupTheme
 
 @Composable
@@ -38,9 +42,14 @@ fun MainScreen(
                 NavHost(
                         modifier = Modifier.padding(paddingValues),
                         navController = navController,
-                        startDestination = ""
+                        startDestination = EmailsListDestination
                 ) {
+                        emailsListScreen(
+                                onOpenEmailDetails = onOpenEmailDetails,
+                                onComposeNewEmail = onComposeNewEmail
+                        )
 
+                        profileScreen()
                 }
         }
 }
