@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavDestination
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHost
 import androidx.navigation.compose.NavHost
@@ -20,6 +21,9 @@ import androidx.navigation.compose.rememberNavController
 import com.luminous.jetpackcomposenavigation.emails.EmailsListDestination
 import com.luminous.jetpackcomposenavigation.emails.EmailsListScreen
 import com.luminous.jetpackcomposenavigation.emails.emailsListScreen
+import com.luminous.jetpackcomposenavigation.emails.navigateToEmailsList
+import com.luminous.jetpackcomposenavigation.profile.ProfileDestination
+import com.luminous.jetpackcomposenavigation.profile.navigateToProfile
 import com.luminous.jetpackcomposenavigation.profile.profileScreen
 import com.luminous.jetpackcomposenavigation.ui.theme.NavSetupTheme
 
@@ -34,8 +38,8 @@ fun MainScreen(
                 bottomBar = {
                         MainBottomBar(
                                 hierarchy = navController.currentBackStackEntryAsState().value?.destination?.hierarchy,
-                                onNavigateToEmails = { },
-                                onNavigateToProfile = { }
+                                onNavigateToEmails = { navController.navigateToEmailsList() },
+                                onNavigateToProfile = { navController.navigateToProfile() }
                         )
                 }
         ) { paddingValues ->
@@ -62,13 +66,13 @@ fun MainBottomBar(
 ) {
         NavigationBar {
                 NavigationBarItem(
-                        selected = true,
+                        selected = hierarchy?.any { it.hasRoute(EmailsListDestination::class) } == true,
                         onClick = onNavigateToEmails,
                         icon = { Icon(Icons.Default.Email, "Emails") }
                 )
 
                 NavigationBarItem(
-                        selected = false,
+                        selected = hierarchy?.any { it.hasRoute(ProfileDestination::class) } == true,
                         onClick = onNavigateToProfile,
                         icon = { Icon(Icons.Default.Person, "Profile") }
                 )
