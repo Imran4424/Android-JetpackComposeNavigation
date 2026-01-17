@@ -36,8 +36,17 @@ fun AppRoot() {
                 )
 
                 mainScreen(
-                        onOpenEmailDetails = { },
-                        onComposeNewEmail = { }
+                        onOpenEmailDetails = { emailId: Int -> navController.navigateToEmailDetails(emailId) },
+                        onComposeNewEmail = { navController.navigateToComposer() }
+                )
+
+                emailDetailsScreen(
+                        onReplyToEmail = { navController.navigateToComposer() },
+                        onNavigateUp = { navController.navigateUp() }
+                )
+
+                composerScreenRoot(
+                        onNavigateUp = { navController.navigateUp() }
                 )
         }
 }
