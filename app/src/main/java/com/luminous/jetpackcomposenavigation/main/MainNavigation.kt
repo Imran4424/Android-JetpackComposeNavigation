@@ -20,14 +20,11 @@ fun NavGraphBuilder.mainScreen(
         }
 }
 
-//fun NavController.onOpenEmailDetails(emailId: Int) {
-//        navigate(MainDestination)
-//}
-//
-//fun NavController.onComposeNewEmail() {
-//
-//}
-
 fun NavController.navigateToMain() {
-        navigate(MainDestination)
+        navigate(MainDestination) {
+                popUpTo(0) {
+                        inclusive = true
+                        saveState = true
+                }
+        }
 }
