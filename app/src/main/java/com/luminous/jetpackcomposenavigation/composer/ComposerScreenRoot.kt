@@ -28,6 +28,10 @@ fun ComposerScreenRoot(
                                 onOpenSettings = { navController.navigateToComposerSettings() }
                         )
                 }
+
+                composerSettingsScreen(
+                        onNavigateUp = { navController.navigateUp() }
+                )
         }
 }
 
