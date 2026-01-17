@@ -25,7 +25,3 @@ fun NavGraphBuilder.loginScreen(
 fun NavController.navigateToMain() {
         navigate(MainDestination)
 }
-
-fun NavController.navigateToSignUp() {
-        navigate(SignUpDestination)
-}
