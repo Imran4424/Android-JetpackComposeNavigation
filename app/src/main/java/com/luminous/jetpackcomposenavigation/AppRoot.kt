@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.luminous.jetpackcomposenavigation.emails.navigateToEmailDetails
 import com.luminous.jetpackcomposenavigation.login.LoginDestination
 import com.luminous.jetpackcomposenavigation.login.LoginScreen
 import com.luminous.jetpackcomposenavigation.login.loginScreen
